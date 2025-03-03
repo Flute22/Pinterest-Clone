@@ -1,0 +1,35 @@
+<% include ./partials/header.ejs %>
+
+    <div class="w-full h-screen bg-[url(/images/Login/bg1.jpg)] bg-center bg-cover flex items-center justify-center">
+        <div class="w-[470px] h-[85vh] bg-zinc-100 px-4 py-3 rounded-[30px]">
+            <div class="w-full h-5 flex justify-end">
+                <i class="fa-solid fa-xmark text-2xl mr-3 mt-3"></i>
+            </div>
+            
+            <div class="flex items-center justify-center flex-col gap-5">
+                <img src="/images/Login/pinterest.png" alt="logo" class="w-10 ">
+                <h1 class="text-3xl font-semibold text-gray-800">Welcome to Pinterest</h1>
+            </div>
+
+            <form action="/login" method="post" class="flex flex-col mt-10 w-[62%] m-auto">
+                <label for="username" class="ml-2">Username</label>
+                <input type="text" name="username" id="username" placeholder="Username" class="pl-5 px-1 py-3 rounded-2xl border-2 border-gray-300">
+
+                <label for="password" class="ml-2 mt-2">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password" class="pl-5 px-1 py-3 rounded-2xl border-2 border-gray-300">
+
+                <a href="#" class="my-3 font-medium">Forgot your password?</a>
+
+                <input type="submit" class="bg-[#E60023] border-none pl-5 px-1 py-2 rounded-3xl border-2 border-gray-300 mt-5 text-white font-medium text-lg" value="Log in">
+
+                <p class="text-xs text-gray-400 mt-10 text-center">By continuing, you agree to Pinterest's <span class="underline cursor-pointer">Terms of Service</span>and acknowlege you've read our <span class="underline cursor-pointer">Privacy Policy</span>. <span class="underline cursor-pointer">Notice at collection.</span></p>
+
+                <span class="text-center text-gray-400">_______________</span>
+
+                <a href="/register" class="cursor-pointer text-sm text-gray-700 font-medium text-center mt-4">Not on Pinterest yet? Sign up</a>
+            </form>
+
+        </div>
+    </div>
+
+<% include ./partials/footer.ejs %> 

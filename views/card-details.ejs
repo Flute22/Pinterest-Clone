@@ -1,0 +1,85 @@
+<% include ./partials/header.ejs %>
+<% var post %>
+    <div class="w-full flex justify-center mt-5">
+        <div class="w-full flex justify-center">
+            <a href="/profile"><i class="fa-solid fa-arrow-left-long mr-8 mt-5"></i></a>
+            <div class="w-[65%] h-[75vh] border flex rounded-[2rem] overflow-hidden">
+<!--                left container -->
+                <div class="w-full bg-gray-100 flex items-center justify-center px-10 py-0">
+                    <div class="card-img">
+                        <img src="/images/uploads/<%= post.image %>" alt="<%= post.title %>">
+                    </div>
+                </div>
+
+<!--                Right container -->
+                <div class="w-full px-5 py-5 flex flex-col">
+                    <div class="w-full flex items-center justify-center">
+                        <div class="flex items-center justify-start gap-10 w-full">
+                            <div>
+                                <div class="like">
+                                    <i class="fa-regular fa-heart text-xl"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="share">
+                                    <i class="fa-solid fa-arrow-up-from-bracket text-xl"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="ellipsis">
+                                    <i class="fa-solid fa-ellipsis text-2xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full flex items-center justify-end">
+                            <button type="submit" class="px-5 py-2 bg-red-600 text-white rounded-full">Save</button>
+                        </div>
+                    </div>
+
+                    <div class="mt-2">
+                        <h3 class="text-lg font-semibold"><%= post.title %></h3>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="user flex items-center gap-3">
+                            <a href="/profile">
+                                <img class="w-7 rounded-full" src="/images/uploads/<%= post.user.profilePic %>" alt="">
+                            </a>
+                            <p><%= post.user.name %></p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 opacity-50">
+                        <p class="text-sm font-medium"><%= post.description %></p>
+                    </div>
+
+                    <div class="mt-5 flex-grow">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <p class="font-semibold">213</p>
+                                <p class="font-semibold text-base">Comments</p>
+                            </div>
+                            <div class="bg-gray-100 hover:bg-gray-200 cursor-pointer rounded-full flex items-center justify-center py-1 p-3">
+                                <i class="fa-solid fa-angle-down text-lg"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex items-center justify-end">
+                            <div class="w-full py-4 px-2 bg-gray-200 rounded-full flex justify-between">
+                                <input type="text" placeholder="Add a comment" class="bg-transparent outline-none ml-3">
+                                <div class="comment-icons mr-3 flex items-center justify-center gap-3">
+                                    <i class="fa-solid fa-face-smile cursor-pointer"></i>
+                                    <i class="fa-solid fa-image cursor-pointer"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<% include ./partials/footer.ejs %>

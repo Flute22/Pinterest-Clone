@@ -1,0 +1,11 @@
+/* This file can be empty if Tailwind CSS is fully handling the styling */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (max-width: 600px) {
+    .add-route-form-container {
+        flex-direction: column;
+    }
+}

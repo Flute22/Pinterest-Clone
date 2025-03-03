@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pinterest</title>
+    <link rel="shortcut icon" href="/images/Login/pinterest.png" type="image/x-icon"/>
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <!-- Remix Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/input.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <% if(nav === true) { %>
+      <nav class="h-16 w-full flex justify-between items-center py-3 px-10 bg-gray-100">
+        <!-- <h3 class="text-xl font-semibold">Pinterest</h3> -->
+        <a href="#"><img src="/images/Login/pinterest.png" alt="" class="w-8 h-8"/></a>
+        <div>
+
+        </div>
+        <div class="flex gap-7 justify-center items-center">
+          <a href="/profile" class="font-medium">Profile</a>
+          <a href="/feed" class="font-medium">Feed</a>
+          <a href="/logout" class="px-3 py-2 bg-red-600 text-white rounded-lg">Log out</a>
+        </div>
+      </nav>
+    <% } %>
+  </body>
+</html>

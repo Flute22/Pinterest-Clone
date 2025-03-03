@@ -1,0 +1,116 @@
+<% include ./partials/header.ejs %>
+<div class="container mx-auto mt-10 text-black flex flex-col items-center">
+  <h1 class="text-2xl font-semibold">Create a new pin</h1>
+  <p class="text-gray-500 mt-2">Share your best ideas with the world</p>
+<!--  <hr class="opacity-75 mt-3 w-full" />-->
+
+  <form id="postForm" action="/create-post" method="post" enctype="multipart/form-data" class="w-full bg-gray-100 rounded-2xl overflow-hidden px-16 mt-8 mb-8">
+  <!-- Left: Image Upload Area -->
+    <div class="add-route-form-container flex justify-center gap-16 py-10">
+      <label for="imageInput" class="w-full cursor-pointer flex flex-col items-center justify-center">
+        <div id="uploadArea" class="text-center p-6">
+          <div class="mb-4">
+            <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+          </div>
+          <p class="text-base font-medium mb-2">Drag and drop or click to upload</p>
+          <p class="text-sm text-gray-500">We recommend using high quality .jpg files less than 20MB</p>
+        </div>
+        <div id="imagePreview" class="hidden w-full h-full">
+          <img id="preview" class="w-full h-full object-cover" src="" alt="Preview"/>
+        </div>
+      </label>
+      <input type="file" id="imageInput" name="post-image" accept="image/*" class="hidden"/>
+
+      <!-- Right:  Area -->
+      <div class="flex flex-col justify-center w-full">
+        <!-- Title -->
+        <div class="mb-6">
+          <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Add your title</label>
+          <input type="text" id="title" name="title" placeholder="Write a catchy title" class="w-full px-4 py-3 rounded-lg outline-none border border-gray-300 focus:ring-2  focus:border-transparent"/>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-6">
+          <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Tell everyone what your Pin is about</label>
+          <textarea id="description" name="description" rows="4" placeholder="Add a detailed description" class="w-full px-4 py-3 rounded-lg outline-none border border-gray-300 focus:ring-2  focus:border-transparent"></textarea>
+        </div>
+
+        <!-- Save Button -->
+        <button type="submit" class="bg-[#E60023] hover:bg-[#ad081b] text-white w-full font-semibold py-3 px-6 rounded-full transition duration-200">Create Pin</button>
+      </div>
+    </div>
+
+
+  </form>
+
+  <% include ./partials/footer.ejs %>
+</div>
+
+<script>
+  // Image preview functionality
+  const imageInput = document.getElementById("imageInput");
+  const uploadArea = document.getElementById("uploadArea");
+  const imagePreview = document.getElementById("imagePreview");
+  const preview = document.getElementById("preview");
+
+  imageInput.addEventListener("change", function (e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        preview.src = e.target.result;
+        uploadArea.classList.add("hidden");
+        imagePreview.classList.remove("hidden");
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Drag and drop functionality
+  const dropZone = document.querySelector(".image-upload");
+
+  ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+    dropZone.addEventListener(eventName, preventDefaults, false);
+  });
+
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  ["dragenter", "dragover"].forEach((eventName) => {
+    dropZone.addEventListener(eventName, highlight, false);
+  });
+
+  ["dragleave", "drop"].forEach((eventName) => {
+    dropZone.addEventListener(eventName, unhighlight, false);
+  });
+
+  function highlight(e) {
+    dropZone.classList.add("border-2", "border-red-500", "border-dashed");
+  }
+
+  function unhighlight(e) {
+    dropZone.classList.remove("border-2", "border-red-500", "border-dashed");
+  }
+
+  dropZone.addEventListener("drop", handleDrop, false);
+
+  function handleDrop(e) {
+    const dt = e.dataTransfer;
+    const file = dt.files[0];
+    imageInput.files = dt.files;
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        preview.src = e.target.result;
+        uploadArea.classList.add("hidden");
+        imagePreview.classList.remove("hidden");
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+</script>

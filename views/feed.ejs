@@ -1,0 +1,18 @@
+<% include ./partials/header.ejs %>
+
+<div class="cards flex justify-center flex-wrap gap-x-4 gap-y-10 px-10 mt-10">
+    <% let i; %>
+    <% for (i of posts) { %>
+        <a href="/card-details/<%= i._id %>">
+            <div class="card overflow-hidden">
+                <div class="w-56 h-72 bg-gray-100 rounded-2xl overflow-hidden flex items-center justify-center">
+                    <img class="h-full object-cover" src="/images/uploads/<%= i?.image %>" alt="no image">
+                </div>
+                <h1 class="text-lg font-semibold mt-3"><%= i?.title %></h1>
+                <h5 class="w-full max-h-10 text-sm font-medium opacity-50"><%= i?.description.split(' ').slice(0,5).join(" ") %></h5>
+            </div>
+        </a>
+    <% } %>
+</div>
+
+<% include ./partials/footer.ejs %>
