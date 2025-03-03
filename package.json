@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "tcs": "npx tailwindcss -i ./public/stylesheets/input.css -o ./public/stylesheets/style.css --watch"
+    "start": "node ./bin/www",
+    "tcs": "npx tailwindcss -i ./public/stylesheets/input.css -o ./public/stylesheets/style.css --watch",
+    "build": "npx tailwindcss -i ./public/stylesheets/input.css -o ./public/stylesheets/style.css"
   },
   "dependencies": {
     "connect-flash": "^0.1.1",
@@ -22,6 +23,7 @@
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0",
+    "serverless-http": "^3.2.0",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
