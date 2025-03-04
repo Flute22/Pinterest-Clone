@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+</head>
+<body>
 <h1><%= message %></h1>
-<h2><%= error.status %></h2>
+<% if (error.status) { %>
+    <h2>Status: <%= error.status %></h2>
+<% } %>
 <pre><%= error.stack %></pre>
+</body>
+</html>
