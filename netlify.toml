@@ -9,6 +9,3 @@
   from = "/*"
   to = "/.netlify/functions/express"
   status = 200
-
-[functions.express]
-  included_files = "views/**"
