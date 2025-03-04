@@ -10,7 +10,7 @@ passport.use(new localStrategy(userModel.authenticate()));
 
 
 // Index or Login Route
-router.get("/", function (req, res, next) {
+router.get("/",  (req, res)=> {
   res.render("index", { nav: false });
 });
 

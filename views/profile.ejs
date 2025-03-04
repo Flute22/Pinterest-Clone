@@ -1,4 +1,4 @@
-<% include ./partials/header.ejs %>
+<%- include('partials/header') %>
     <div class="profile w-full min-h-screen text-black">
         <form id="profile-form" hidden action="/fileupload" method="post" enctype="multipart/form-data">
             <input type="file" name="image"/>
@@ -29,7 +29,7 @@
                 <a href="/card-details/<%= i._id %>">
                     <div class="card overflow-hidden">
                         <div class="w-56 h-72 bg-gray-300 border rounded-2xl overflow-hidden hover:opacity-70">
-                            <img id="post" class="w-full h-full object-cover" src="/images/uploads/<%= i?.image %>" alt="no image">
+                            <img id="post" class="w-full h-full object-cover rounded-2xl" src="/images/uploads/<%= i?.image %>" alt="no image">
                         </div>
                         <h1 class="text-lg font-semibold mt-3"><%= i?.title %></h1>
                         <h5 class="w-full max-h-10 text-sm font-medium opacity-50"><%= i?.description.split(' ').slice(0,5).join(" ") %></h5>
@@ -39,6 +39,7 @@
         </div>
     </div>
 
+<%- include('partials/footer') %>
     <script>
         document.querySelector("#upload-profile").addEventListener("click", () => {
             document.querySelector("#profile-form input").click();
@@ -52,4 +53,3 @@
         // post-hover-effect
         let post = document.querySelector("#post")
     </script>
-<% include ./partials/footer.ejs %>
