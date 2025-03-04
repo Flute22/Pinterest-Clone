@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "tcs": "npx tailwindcss -i ./public/stylesheets/input.css -o ./public/stylesheets/style.css --watch",
-    "build": "npx tailwindcss -i ./public/stylesheets/input.css -o ./public/stylesheets/style.css"
+    "tcs": "npx tailwindcss -i ./public/stylesheets/input.css -o ./public/stylesheets/style.css --watch"
   },
   "dependencies": {
     "connect-flash": "^0.1.1",
