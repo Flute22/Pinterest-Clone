@@ -23,6 +23,7 @@ require('dotenv').config();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.set('views', path.join(process.cwd(), 'views'));
 
 app.use(expressSession({
   resave: false,
