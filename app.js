@@ -18,8 +18,11 @@ require('dotenv').config();
 
 
 // view engine setup
+// const path = require('path');
+// __dirname Netlify ke lambda environment mein /var/task hota hai.
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 
 app.use(expressSession({
   resave: false,
