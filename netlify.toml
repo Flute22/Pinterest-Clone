@@ -1,7 +1,5 @@
 [build]
-  # Install dependencies (Netlify will run this automatically)
   command = "npm install"
-  # You can leave the publish directory empty if your app is fully serverless
   publish = "public"
 
 [functions]
@@ -11,3 +9,6 @@
   from = "/*"
   to = "/.netlify/functions/express"
   status = 200
+
+[functions.express]
+  included_files = "views/**"
