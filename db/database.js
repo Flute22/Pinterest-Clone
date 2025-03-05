@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
 
 mongoose
-    .connect('mongodb://127.0.0.1:27017/pin-clone')
+    .connect(`${process.env.MONGO_URI}/pin-clone`)
     .then(() => console.log("Connected to Database"))
     .catch((err) => console.log(`Database connection error: ${err}`));
 

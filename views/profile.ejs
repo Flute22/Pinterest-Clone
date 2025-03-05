@@ -27,12 +27,19 @@
             <% let i; %>
             <% for (i of user.posts) { %>
                 <a href="/card-details/<%= i._id %>">
-                    <div class="card overflow-hidden">
-                        <div class="w-56 h-72 bg-gray-300 border rounded-2xl overflow-hidden hover:opacity-70">
+                    <div class="card overflow-hidden relative">
+                        <div class="w-56 h-72 bg-gray-300 border rounded-2xl overflow-hidden hover:opacity-60">
                             <img id="post" class="w-full h-full object-cover rounded-2xl" src="/images/uploads/<%= i?.image %>" alt="no image">
                         </div>
                         <h1 class="text-lg font-semibold mt-3"><%= i?.title %></h1>
                         <h5 class="w-full max-h-10 text-sm font-medium opacity-50"><%= i?.description.split(' ').slice(0,5).join(" ") %></h5>
+
+<!--                        <div class="absolute top-32 left-20">-->
+<!--                            <div class="flex items-center justify-center gap-8">-->
+<!--                                    <i class="fa-solid fa-pen-to-square text-xl"></i>-->
+<!--                                    <i class="fa-solid fa-trash text-xl"></i>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                 </a>
             <% } %>
@@ -50,6 +57,4 @@
         });
 
 
-        // post-hover-effect
-        let post = document.querySelector("#post")
     </script>

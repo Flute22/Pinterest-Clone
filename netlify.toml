@@ -11,4 +11,4 @@
   status = 200
 
 [functions.express]
-  included_files = "views/**"
+  included_files = ["views/**"]
