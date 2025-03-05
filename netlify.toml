@@ -11,4 +11,8 @@
   status = 200
 
 [functions.express]
+<<<<<<< HEAD
   included_files = ["views/**"]
+=======
+  included_files = ["views/**"]
+>>>>>>> 19afb0dfbae07fe3280c9df7da4d911b3a7041aa
